@@ -1,10 +1,14 @@
 from django.shortcuts import render
-from .models import Listing  # Fetch data from DB
+from .models import Listing
+from django.core.paginator import EmptyPage, PageNotAnInteger,Paginator
 
 # Create your views here.
 def index(request):
-    listings = Listing.objects.all()  
-    context = {'listings': listings, 'name': 'something'}
+    listings = Listing.objects.all().order_by('-list_date').filter(is_published=True) 
+    paginator = Paginator(listings,3)
+    page = request.GET.get('page')
+    page_listings = paginator.get_page(page)
+    context = {'listings': page_listings}
     return render(request, "listings/listings.html", context)
 
 def listing(request, listing_id):

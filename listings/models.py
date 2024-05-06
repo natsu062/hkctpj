@@ -14,7 +14,7 @@ class Listing(models.Model):
     description = models.TextField(blank=True)
     price = models.IntegerField()
     bedrooms = models.IntegerField()
-    sqft = models.IntegerField()
+    sqft = models.IntegerField(default=0)
     bathrooms = models.IntegerField()
     photo_main = models.ImageField(upload_to='photos/%Y/%m/%d')
     photo_1 = models.ImageField(upload_to='photos/%Y/%m/%d', blank=True)
