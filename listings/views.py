@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.http import Http404
 from .models import Listing 
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
+from listings.choices import region_choices, price_choices, bedroom_choices
 
 # Create your views here.
 def index(request):

@@ -14,7 +14,7 @@
           Consectetur, id commodi!
         </p>
         <div class="search">
-          <form action="search.html">
+          <form action="{% url 'search' %}">
             <!-- Form Row 1 -->
             <div class="form-row">
               <div class="col-md-4 mb-3">
@@ -43,24 +43,9 @@
                   <option selected="true" disabled="disabled">
                     Region (All)
                   </option>
-                  <option value="A">Central and West</option>
-                  <option value="C">Eastern</option>
-                  <option value="D">Southern</option>
-                  <option value="B">Wan Chai</option>
-                  <option value="G">Kowloon City</option>
-                  <option value="J">Kwun Tong</option>
-                  <option value="F">Sham Shui Po</option>
-                  <option value="H">Wong Tai Sin</option>
-                  <option value="E">Yau Tsim Mong</option>
-                  <option value="T">Island</option>
-                  <option value="S">Kwai Tsing</option>
-                  <option value="N">North</option>
-                  <option value="Q">Sai Kung</option>
-                  <option value="R">Sha Tin</option>
-                  <option value="P">Tai Po</option>
-                  <option value="K">Tsuen Wan</option>
-                  <option value="L">Tuen Mun</option>
-                  <option value="M">Yuen Long</option>
+                  {% for key,value in region_choices.items %}
+                  <option value="{{key}}">{{value}}</option>
+                  {% endfor %}
                 </select>
               </div>
             </div>
@@ -72,16 +57,9 @@
                   <option selected="true" disabled="disabled">
                     Bedrooms (All)
                   </option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                  <option value="7">7</option>
-                  <option value="8">8</option>
-                  <option value="9">9</option>
-                  <option value="10">10</option>
+                  {% for key,value in bedroom_choices.items %}
+                  <option value="{{key}}">{{value}}</option>
+                  {% endfor %}
                 </select>
               </div>
               <div class="col-md-6 mb-3">
@@ -89,16 +67,9 @@
                   <option selected="true" disabled="disabled">
                     Max Price (Any)
                   </option>
-                  <option value="1000000">$1,000,000</option>
-                  <option value="2000000">$2,000,000</option>
-                  <option value="3000000">$3,000,000</option>
-                  <option value="4000000">$4,000,000</option>
-                  <option value="5000000">$5,000,000</option>
-                  <option value="6000000">$6,000,000</option>
-                  <option value="7000000">$7,000,000</option>
-                  <option value="8000000">$8,000,000</option>
-                  <option value="9000000">$9,000,000</option>
-                  <option value="10000000">$10M+</option>
+                  {% for key,value in price_choices.items %}
+                  <option value="{{key}}">{{value}}</option>
+                  {% endfor %}
                 </select>
               </div>
             </div>

@@ -14,3 +14,5 @@ class Realtor(models.Model):
 
     def _str_(self):
         return f"Home Titer : {self.title}"
+    
+    #return self.name
