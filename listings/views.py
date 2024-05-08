@@ -15,7 +15,7 @@ def index(request):
 
 def listing(request, listing_id):
     try:
-        listing = get_object_or_404(Listing,pk=listing_id)
+        listing = get_object_or_404(Listing, pk=listing_id)
         context = {
             'listing':listing
         }
@@ -24,4 +24,32 @@ def listing(request, listing_id):
         return render(request, '404.html')
 
 def search(request):
-    return render(request,"listings/search.html")
+    queryset_list = Listing.objects.all().order_by('-list_date')
+    if 'keywords' in request.GET:
+        keywords = request.GET['keywords']
+        if keywords:
+            queryset_list = queryset_list.filter(description__icontains=keywords)
+    if 'address' in request.GET:
+        address = request.GET['address']
+        if address:
+            queryset_list = queryset_list.filter(address__icontains=address)
+    if 'city' in request.GET:
+        city = request.GET['city']
+        if city:
+            queryset_list = queryset_list.filter(city__iexact=city)
+    if 'bedrooms' in request.GET:
+        bedrooms = request.GET['bedrooms']
+        if bedrooms:
+            queryset_list = queryset_list.filter(bedrooms__lte=bedrooms)
+    if 'price' in request.GET:
+        price = request.GET['price']
+        if price:
+            queryset_list = queryset_list.filter(price__lte=price)
+    context ={
+        'listings' : queryset_list,
+        'region_choices' : region_choices, 
+        'price_choices' : price_choices,
+        'bedroom_choices' : bedroom_choices,
+        'values' : request.GET
+    }
+    return render(request,"listings/search.html", context)

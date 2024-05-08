@@ -1,25 +1,25 @@
-region_choices ={
-    "A":"Central and West",
-                    "C":"Eastern",
-                    "D":"Southern",
-                    "B":"Wan Chai",
-                    "G":"Kowloon City",
-                    "J":"Kwun Tong",
-                    "F":"Sham Shui Po",
-                    "H":"Wong Tai Sin",
-                    "E":"Yau Tsim Mong",
-                    "T":"Island",
-                    "S":"Kwai Tsing",
-                    "N":"North",
-                    "Q":"Sai Kung",
-                    "R":"Sha Tin",
-                    "P":"Tai Po",
-                    "K":"Tsuen Wan",
-                    "L":"Tuen Mun",
-                    "M":"Yuen Long"
+region_choices = {
+    "Central and West":"Central and West",
+    "Eastern":"Eastern",
+    "Southern":"Southern",
+    "Wan Chai":"Wan Chai",
+    "Kowloon City":"Kowloon City",
+    "Kwun Tong":"Kwun Tong",
+    "Sham Shui Po":"Sham Shui Po",
+    "Wong Tai Sin":"Wong Tai Sin",
+    "Yau Tsim Mong":"Yau Tsim Mong",
+    "Island":"Island",
+    "Kwai Tsing":"Kwai Tsing",
+    "North":"North",
+    "Sai Kung":"Sai Kung",
+    "Sha Tin":"Sha Tin",
+    "Tai Po":"Tai Po",
+    "Tsuen Wan":"Tsuen Wan",
+    "Tuen Mun":"Tuen Mun",
+    "Yuen Long":"Yuen Long"
 }
 
-bedroom_choices ={
+bedroom_choices = {
     "1":1,
     "2":2,
     "3":3,
@@ -32,7 +32,7 @@ bedroom_choices ={
     "10":10
 }
 
-price_choices ={
+price_choices = {
             "1000000":"$1,000,000",
             "2000000":"$2,000,000",
             "3000000":"$3,000,000",
