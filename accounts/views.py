@@ -3,9 +3,15 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 
 def login(request):
+    if request.method == 'POST':
+        messages.error(request,'testing error message')
+        return redirect('login')
     return render(request,'accounts/login.html')
 
 def register(request):
+    if request.method == 'POST':
+        print('register')
+        return redirect('register')
     return render(request,'accounts/register.html')
 
 def logout(request):

@@ -11,7 +11,7 @@
       data-target="#navbarNavAltMarkup"
     >
       <span class="navbar-toggler-icon"></span>
-    </button>S
+    </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <ul class="navbar-nav">
         {% comment %} adding condittonal css {% endcomment %}
@@ -27,7 +27,7 @@
       </ul>
 
       <ul class="navbar-nav ml-auto">
-      {% if 'register' in resquest.path %}
+      {% if 'register' in request.path %}
       <li class="nav-item mr-3 active">
       {% else %}
         <li class="nav-item mr-3">
