@@ -216,20 +216,35 @@
         </button>
       </div>
       <div class="modal-body">
-        <form>
+        <form action="{% url 'contact' %}" method="POST">
+          {% csrf_token %}
+            <!-- chick user then user_id -->
+          {% if user.is_autenticated %}
+          <input type="hidden" name="user_id" value="{{user.id}}"/> 
+          {% else %}
+          <input type="hidden" name="user_id" value="0"/>
+          {% endif %}
+            <!-- add realtor email -->
+          <input type="hidden" name="realtor_email" value="{{listing.realtor.email}}"/>
+            <!-- listing ID -->
+          <input type="hidden" name="listing_id" value="{{listing.id}}"/>"
           <div class="form-group">
             <label for="property_name" class="col-form-label">Property:</label>
             <input
               type="text"
               name="listing"
               class="form-control"
-              value="45 Drivewood Cirlce"
+              value="{{listing.title}}"
               disabled
             />
           </div>
           <div class="form-group">
             <label for="name" class="col-form-label">Name:</label>
-            <input type="text" name="name" class="form-control" required />
+            <input type="text" name="name" 
+          {% if user.is_authenticated %}
+          value="{{user.frist_name}} {{user.last_name}}"
+          {% endif %}
+          class="form-control" required />
           </div>
           <div class="form-group">
             <label for="email" class="col-form-label">Email:</label>

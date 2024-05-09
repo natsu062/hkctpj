@@ -1,6 +1,6 @@
 {% extends "base.html" %} {% load static %} {% load humanize %}
 <!-- block -->
-{% block content %}
+{% block title %} | Welcome {% endblock %} {% block content %}
 
 <!-- Showcase -->
 <section id="showcase">
@@ -86,6 +86,7 @@
 <!-- Listings -->
 <section id="listings" class="py-5">
   <div class="container">
+    {% include 'partials/_alerts.html' %}
     <h3 class="text-center mb-3">Latest Listings</h3>
     <div class="row">
       {% if listings %}

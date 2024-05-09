@@ -12,7 +12,9 @@
     <!-- Custom -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
 
-    <title>BitCoin Real Estate</title>
+    <link rel="stylesheet" href="{% static 'css/lightbox.min.css' %}" />
+
+    <title>BitCoin Real Estate {% block title %}{% endblock %}</title>
   </head>
   <body>
     {% include 'partials/_topbar.html' %} {% include 'partials/_navbar.html' %}
@@ -20,5 +22,6 @@
     <script src="{% static 'js/jquery-3.3.1.min.js' %} "></script>
     <script src="{% static 'js/bootstrap.bundle.min.js' %} "></script>
     <script src="{% static 'js/main.js' %} "></script>
+    <script src="{% static 'js/lightbox.min.js' %}"></script>
   </body>
 </html>

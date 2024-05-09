@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'listings.apps.ListingsConfig',
     'realtors.apps.RealtorsConfig',
     'accounts.apps.AccountsConfig',
+    'contacts.apps.ContactsConfig'
     ]
 
 MIDDLEWARE = [
@@ -137,7 +138,8 @@ MEDIA_URL = '/media/'
 
 MESSAGE_TAGS ={
     messages.ERROR:'danger',
-    messages.INFO :'info'
+    messages.INFO :'info',
+    messages.SUCCESS : 'success'
 }
 
 # Default primary key field type
