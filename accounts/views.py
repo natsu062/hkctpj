@@ -1,27 +1,20 @@
 from django.shortcuts import render,redirect
-from django.contrib import messages
+from django.contrib import messages,auth
 from django.contrib.auth.models import User
-from django.contrib.auth.hashers import check_password
 from contacts.models import Contact
-from django.contrib import auth
+#from django.contrib import auth
 
 def login(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
-        user = User.objects.filter(username=username).exists()
-        if user:
-            check_pass = User.objects.get(username=username)
-            if check_password(password, check_pass.password):
-                messages.success(request, 'Yor are login in !')
-                return redirect('index')
-            else:
+        user = auth.authenticate(username=username, password=password)
+        if user is not None:
+            auth.login(request,user)
+            return redirect('dashboard')
+        else:
                 messages.error(request,'Wong Password !')
                 return redirect('login')
-        else:
-            messages.error(request, 'Username dose bot existed !')
-            return redirect('login')
-    
     else:
         return render(request,'accounts/login.html')
 

@@ -30,7 +30,7 @@
                   <option selected="true" disabled="disabled">Region (All)
                   </option>
                   {% for key,value in region_choices.items %}
-                  <option value="{{key}}" {% if key == values.region %}
+                  <option value="{{key}}" {% if key == values.city %}
                   selected {% endif %}>{{value}}</option>
                   {% endfor %}
                 </select>
